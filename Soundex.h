@@ -9,14 +9,10 @@ using SoundexMap = std::unordered_map<char, char>;
 
 struct Soundex {
     static std::string generate(const std::string& name);
-
-private:
     static const SoundexMap mapping;
-
-    // Helper methods for SRP
+private:
     static std::string initializeSoundex(const std::string& name);
     static void processNameCharacters(const std::string& name, std::string& soundex);
-    
     static bool shouldProcessCharacter(char currentChar, char prevCode);
     static void addCharacterToSoundex(std::string& soundex, char currentChar, char& prevCode);
 
