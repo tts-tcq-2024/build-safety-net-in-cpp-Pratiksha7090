@@ -15,7 +15,7 @@ private:
     static void processNameCharacters(const std::string& name, std::string& soundex);
     static bool shouldProcessCharacter(char currentChar, char prevCode);
     static void addCharacterToSoundex(std::string& soundex, char currentChar, char& prevCode);
-
+    static void processCharacter(std::string& soundex, char currentChar, char& prevCode);
     static bool shouldSkipCharacter(char c);
     static bool isValidNewCode(char currentChar, char prevCode);
 };
