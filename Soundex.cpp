@@ -57,8 +57,8 @@ void Soundex::processNameCharacters(const std::string& name, std::string& sounde
     }
 }
 
-bool Soundex::shouldProcessCharacter(char currentChar, char prevCode) {
-    return !shouldSkipCharacter(currentChar) && isValidNewCode(currentChar, prevCode);
+bool Soundex::shouldProcessCharacter(char c) const {
+    return !SoundexUtils::isVowelOrIgnored(c);
 }
 
 void Soundex::addCharacterToSoundex(std::string& soundex, char currentChar, char& prevCode) {
