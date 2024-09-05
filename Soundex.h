@@ -25,6 +25,7 @@ private:
 };
 
 struct SoundexUtils {
+public:
     static char getSoundexCode(char c);
     static bool isVowelOrIgnored(char c);
     static std::string padWithZeroes(const std::string& soundex, std::size_t targetLength = 4);
