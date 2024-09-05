@@ -1,4 +1,5 @@
 #include "Soundex.h"
+#include <algorithm>
 
 const SoundexMap Soundex::mapping = {
     {'B', '1'}, {'F', '1'}, {'P', '1'}, {'V', '1'},
@@ -9,6 +10,25 @@ const SoundexMap Soundex::mapping = {
     {'M', '5'}, {'N', '5'},
     {'R', '6'}
 };
+
+char SoundexUtils::getSoundexCode(char c) {
+    c = std::toupper(c);
+    auto it = Soundex::mapping.find(c);
+    if (it != Soundex::mapping.end()) {
+        return it->second;
+    }
+    return '0'; // For A, E, I, O, U, H, W, Y
+}
+
+std::string SoundexUtils::padWithZeroes(const std::string& soundex, std::size_t targetLength) {
+    if (soundex.length() >= targetLength) return soundex;
+    return soundex + std::string(targetLength - soundex.length(), '0');
+}
+
+bool SoundexUtils::isVowelOrIgnored(char c) {
+    static const std::string vowelsAndIgnored = "AEIOUHWY";
+    return vowelsAndIgnored.find(std::toupper(c)) != std::string::npos;
+}
 
 std::string Soundex::generate(const std::string& name) {
     if (name.empty()) return "";
