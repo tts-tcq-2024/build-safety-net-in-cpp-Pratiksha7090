@@ -57,7 +57,7 @@ void Soundex::processNameCharacters(const std::string& name, std::string& sounde
     }
 }
 
-bool Soundex::shouldProcessCharacter(char c) const {
+bool Soundex::shouldProcessCharacter(char c) {
     return !SoundexUtils::isVowelOrIgnored(c);
 }
 
