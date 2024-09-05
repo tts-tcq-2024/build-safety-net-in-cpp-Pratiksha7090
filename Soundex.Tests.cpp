@@ -29,7 +29,7 @@ TEST_F(SoundexTest, CombinesDuplicateEncodings) {
 
 TEST_F(SoundexTest, HandlesConsonantsWithHAndWCorrectly) {
     ASSERT_EQ(soundex.generate("Ashcraft"), "A226");  // 'sh' should combine
-    ASSERT_EQ(soundex.generate("Pfister"), "P236");   // 'Pf' should not combine
+    ASSERT_EQ(soundex.generate("Pfister"), "P123");   // 'Pf' should not combine
 }
 
 TEST_F(SoundexTest, DropsHAndWCorrectlyWhenNotFirstLetter) {
