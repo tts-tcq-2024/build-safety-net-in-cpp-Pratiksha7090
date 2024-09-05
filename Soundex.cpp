@@ -42,16 +42,18 @@ std::string Soundex::generate(const std::string& name) {
 std::string Soundex::initializeSoundex(const std::string& name) {
     return std::string(1, std::toupper(name[0]));
 }
+void Soundex::processCharacter(std::string& soundex, char currentChar, char& prevCode) {
+    if (shouldProcessCharacter(currentChar)) {
+        addCharacterToSoundex(soundex, currentChar, prevCode);
+    }
+}
 
 void Soundex::processNameCharacters(const std::string& name, std::string& soundex) {
     char prevCode = SoundexUtils::getSoundexCode(name[0]);
 
     for (size_t i = 1; i < name.length() && soundex.length() < 4; ++i) {
         char currentChar = std::toupper(name[i]);
-
-        if (shouldProcessCharacter(currentChar, prevCode)) {
-            addCharacterToSoundex(soundex, currentChar, prevCode);
-        }
+        processCharacter(soundex, currentChar, prevCode);
     }
 }
 
