@@ -16,7 +16,7 @@ private:
     static bool shouldProcessCharacter(char currentChar, char prevCode);
     static void addCharacterToSoundex(std::string& soundex, char currentChar, char& prevCode);
     static void processCharacter(std::string& soundex, char currentChar, char& prevCode);
-    sbool shouldProcessCharacter(char c) const;
+    bool shouldProcessCharacter(char c) const;
     static bool shouldSkipCharacter(char c);
     static bool isValidNewCode(char currentChar, char prevCode);
 };
