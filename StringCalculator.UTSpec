@@ -1,0 +1,8 @@
+Given Input                            Expected Output         Test Case Description                                     
+ ""                                          0                Given empty string, when String Calculator function is invoked, expected result is 0.
+ "0"                                         0                Given '0', when String Calculator function is invoked, expected result is 0.
+ "1,2"                                       3                Given '1,2', when String Calculator function is invoked, expected result is 3.
+ "//;\n1;2"                                  3                Given '//;\n1;2', when String Calculator function is invoked, expected result is 3.
+ "1\n2,3"                                    6                Given '1\n2,3', when String Calculator function is invoked, expected result is 6.
+ "1,1001"                                    1                Given '1,1001', when String Calculator function is invoked, expected result is 1.
+ "-1,2" (Exception)            negatives not allowed: -1      Given '-1,2' (Exception), when String Calculator function is invoked, expect std::runtime_error.
